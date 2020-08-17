@@ -1,0 +1,41 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+        "name": "web",
+        "image": "pushpvashisht/web:latest",
+        "environment": [
+          {
+            "name": "DATABASE_URL",
+            "value": "postgresql://hello_fastapi:hello_fastapi@db/hello_fastapi_dev"
+          }
+        ],
+        "portMappings": [
+          {
+            "containerPort": 8000,
+            "hostPort": 8000
+          }
+        ],
+        "essential": true
+      },
+      {
+        "name": "db",
+        "image": "postgres:12.1-alpine",
+        "essential": true,
+        "environment": [
+            {
+                "name": "POSTGRES_USER",
+                "value": "hello_fastapi"
+            },
+            {
+                "name": "POSTGRES_PASSWORD",
+                "value": "hello_fastapi"
+            },
+            {
+                "name": "POSTGRES_DB",
+                "value": "hello_fastapi_dev"
+            }
+        ]
+      }
+    ]
+  }
