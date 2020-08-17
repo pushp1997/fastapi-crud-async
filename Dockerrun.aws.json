@@ -16,7 +16,8 @@
             "hostPort": 8000
           }
         ],
-        "essential": true
+        "essential": true,
+        "memory": 128
       },
       {
         "name": "db",
@@ -35,7 +36,8 @@
                 "name": "POSTGRES_DB",
                 "value": "hello_fastapi_dev"
             }
-        ]
+        ],
+        "memory": 128
       }
     ]
   }
